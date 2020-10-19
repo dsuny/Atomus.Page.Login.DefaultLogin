@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Atomus.Ads.Controls;assembly=Atomus.Core"
+             xmlns:local="clr-namespace:Atomus.Page.Login.ViewModel"
+             x:Class="Atomus.Page.Login.DefaultLogin"
+             >
+    
+    <!--<ContentPage.BindingContext>
+        <local:DefaultLoginViewModel />
+    </ContentPage.BindingContext>-->
+    
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+              BackgroundColor="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Image Grid.Column="0" Grid.Row="0" 
+                   Source="{Binding BackgroundImage}" Aspect="{Binding BackgroundImageAspect}"
+                   HorizontalOptions="FillAndExpand"/>
+
+            <AbsoluteLayout Grid.Column="0" Grid.Row="1" >
+                <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,1,1,1">
+                    <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" x:Name="stackLayout">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="260" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout Grid.Column="1" Grid.Row="1">
+                            <Grid BackgroundColor="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="28*" />
+                                    <ColumnDefinition Width="18*" />
+                                    <ColumnDefinition Width="28*" />
+                                    <ColumnDefinition Width="18*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Entry Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
+                                       Text="{Binding Eemail}" IsEnabled="{Binding IsEnabledControl}"
+                                       HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"
+                                       Placeholder="Email" Keyboard="Email" ClearButtonVisibility="WhileEditing"/>
+
+                                <Entry Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4"
+                                       Text="{Binding AccessNumber}" IsEnabled="{Binding IsEnabledControl}"
+                                       HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"
+                                       Placeholder="Password" IsPassword="True" ClearButtonVisibility="WhileEditing"/>
+
+
+                                <Label Grid.Column="0" Grid.Row="2"
+                                       Text="이메일저장"
+                                       HorizontalTextAlignment="End" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+
+                                <Switch Grid.Column="1" Grid.Row="2"
+                                        IsToggled="{Binding RememberEmailIsToggled}" IsEnabled="{Binding IsEnabledControl}"
+                                        HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+
+
+                                <Label Grid.Column="2" Grid.Row="2"
+                                       Text="자동로그인"
+                                       HorizontalTextAlignment="End" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+
+                                <Switch Grid.Column="3" Grid.Row="2"
+                                        IsToggled="{Binding AutoLoginIsToggled}" IsEnabled="{Binding IsEnabledControl}"
+                                        HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                            </Grid>
+
+                            <Grid BackgroundColor="Transparent" ColumnSpacing="4" RowSpacing="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Button Grid.Column="0" Grid.Row="0"
+                                        Text="Login"
+                                        Command="{Binding LoginCommand}" IsEnabled="{Binding IsEnabledControl}" />
+                                <Button Grid.Column="1" Grid.Row="0"
+                                        Text="Join"
+                                        Command="{Binding JoinCommand}" IsEnabled="{Binding IsEnabledControl}" />
+                                <Button Grid.Column="2" Grid.Row="0"
+                                        Text="Exit"
+                                        Command="{Binding ExitCommand}" IsEnabled="{Binding IsEnabledControl}" />
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+
+                    <controls:AdsBannerControl/>
+
+                </StackLayout>
+                <ActivityIndicator AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" 
+                                   IsRunning="{Binding ActivityIndicator}" 
+                                   Color="CornflowerBlue" VerticalOptions="Center" HorizontalOptions="Center" />
+            </AbsoluteLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
